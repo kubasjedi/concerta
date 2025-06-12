@@ -17,8 +17,8 @@ public class Main {
         GdziePoLekPage gdziePoLekPage = new GdziePoLekPage();
         System.out.println("Hello world!");
         Selenide.open(URL);
-        log.info(Selenide.webdriver().driver().source());
         gdziePoLekPage.getPharmacies().shouldHave(CollectionCondition.sizeGreaterThan(0));
+        Selenide.screenshot("test");
         System.out.println(gdziePoLekPage.getPharmacies().size());
         gdziePoLekPage.getPharmacies().asFixedIterable()
                 .stream()
@@ -27,7 +27,7 @@ public class Main {
                     log.info(pharmacy.toString());
                 })
                 .toList();
-
+        Selenide.closeWebDriver();
 
 
     }

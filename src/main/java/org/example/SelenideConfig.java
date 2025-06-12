@@ -25,10 +25,10 @@ public class SelenideConfig {
         options.addArguments("--proxy-bypass-list=<-loopback>");
         options.addArguments("--disable-blink-features=AutomationControlled"); // Hide automation detection
 
-        browserCapabilities = options;
 
         // Exclude problematic switches
         options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation", "load-extension"});
+        browserCapabilities = options;
         // Selenide automatically finds chromedriver, so you usually don't need to set the binary explicitly
         // If /usr/bin/google-chrome is indeed the correct path on the ubuntu-latest runner, you can keep this
         // options.setBinary("/usr/bin/google-chrome");
