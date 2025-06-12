@@ -1,5 +1,6 @@
 package org.example;
 
+import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Selenide;
 import lombok.extern.slf4j.Slf4j;
 
@@ -16,7 +17,8 @@ public class Main {
         GdziePoLekPage gdziePoLekPage = new GdziePoLekPage();
         System.out.println("Hello world!");
         Selenide.open(URL);
-        sleep(3000);
+        log.info(Selenide.webdriver().driver().source());
+        gdziePoLekPage.getPharmacies().shouldHave(CollectionCondition.sizeGreaterThan(0));
         System.out.println(gdziePoLekPage.getPharmacies().size());
         gdziePoLekPage.getPharmacies().asFixedIterable()
                 .stream()
