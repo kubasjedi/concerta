@@ -1,9 +1,11 @@
 package org.example;
 
 import com.codeborne.selenide.Selenide;
+import lombok.extern.slf4j.Slf4j;
 
 import static com.codeborne.selenide.Selenide.sleep;
 
+@Slf4j
 public class Main {
 
     private static final String URL = "https://www.gdziepolek.pl/produkty/19569/concerta-tabletki-o-przedluzonym-uwalnianiu/apteki/w-dolnoslaskim";
@@ -19,8 +21,11 @@ public class Main {
         gdziePoLekPage.getPharmacies().asFixedIterable()
                 .stream()
                 .map(Pharmacy::new)
-                .peek(System.out::println)
+                .peek(pharmacy -> {
+                    log.info(pharmacy.toString());
+                })
                 .toList();
+
 
 
     }
