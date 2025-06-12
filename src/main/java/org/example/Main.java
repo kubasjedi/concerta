@@ -26,7 +26,7 @@ public class Main {
 
         // --- Discord Webhook Post Request ---
         if (pharmacies.isEmpty()) {
-            log.warn("No pharmacies found. Not sending a Discord notification.");
+            log.error("No pharmacies found. Not sending a Discord notification.");
             return;
         }
 
